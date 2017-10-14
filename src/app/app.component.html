@@ -1,5 +1,5 @@
 <!--The whole content below can be removed with the new code.-->
-<div style="text-align:center">
+<!-- <div style="text-align:center">
   <h1>
     Welcome to {{title}}!!
   </h1>
@@ -16,5 +16,20 @@
   <li>
     <h2><a target="_blank" href="http://angularjs.blogspot.ca/">Angular blog</a></h2>
   </li>
+</ul> -->
+
+<h1>Courses</h1>
+<button class="btn btn-default" (click)="ngOnDestroy()">Go offline</button>
+<ul>
+  <li *ngFor="let course of courses$ | async">{{course.$value}}</li>
 </ul>
+
+<p>
+  {{course$ | async | json}}
+</p>
+
+<p>
+  {{author$ | async | json}}
+</p>
+
 
