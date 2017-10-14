@@ -20,16 +20,30 @@
 
 <h1>Courses</h1>
 <button class="btn btn-default" (click)="ngOnDestroy()">Go offline</button>
+<br>
+<input type="text" (keyup.enter)="add(course)" #course>
 <ul>
-  <li *ngFor="let course of courses$ | async">{{course.$value}}</li>
+  <li *ngFor="let course of courses$ | async" >{{course.name}}
+    <button class="btn btn-default" (click)="update(course)">Update</button>
+    <button class="btn btn-danger" (click)="delete(course.key)">Delete</button>
+  </li>
 </ul>
+<button class="btn btn-danger" (click)="deleteAll()">Delete All</button>
+
 
 <p>
-  {{course$ | async | json}}
+  {{course$| async | json }}
 </p>
 
 <p>
   {{author$ | async | json}}
 </p>
+
+<ul *ngIf="author$ | async as author">
+  <li>{{author.name}}</li>
+  <li>{{author.students}}</li>
+  <li>{{author.isPremium}}</li>
+</ul>
+
 
 
